@@ -1,0 +1,16 @@
+VIEW 1440 900 initial {'sx': 0, 'sw': 8570, 'cw': 1440, 'docScrollWidth': 1440, 'innerWidth': 1440, 'display': 'flex'}
+ WHEEL vertical -> horizontal 550
+ WHEEL on header 850
+VIEW 1280 800 initial {'sx': 0, 'sw': 8570, 'cw': 1280, 'docScrollWidth': 1280, 'innerWidth': 1280, 'display': 'flex'}
+ WHEEL vertical -> horizontal 550
+ WHEEL on header 850
+VIEW 1024 768 initial {'sx': 0, 'sw': 8570, 'cw': 1024, 'docScrollWidth': 1024, 'innerWidth': 1024, 'display': 'flex'}
+ WHEEL vertical -> horizontal 550
+ WHEEL on header 850
+VIEW 768 1024 initial {'sx': 0, 'sw': 768, 'cw': 768, 'docScrollWidth': 768, 'innerWidth': 768, 'display': 'block'}
+VIEW 390 844 initial {'sx': 0, 'sw': 390, 'cw': 390, 'docScrollWidth': 390, 'innerWidth': 390, 'display': 'block'}
+VIEW 320 700 initial {'sx': 0, 'sw': 320, 'cw': 320, 'docScrollWidth': 320, 'innerWidth': 320, 'display': 'block'}
+DEMO nand title NAND Lab | Blueprint Breadboard Game buttons 12
+DEMO bacnet title BACnet Lab — Building Automation Protocol Game buttons 6
+PAGE_ERRORS []
+ALL QA ASSERTIONS PASSED

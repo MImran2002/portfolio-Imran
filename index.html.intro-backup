@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#082452">
+  <meta name="description" content="Nyan Lin Zaw — Software Manager and Product Designer. Interactive, blueprint-inspired engineering and design portfolio.">
+  <title>Nyan Lin Zaw — Design × Engineering</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#portfolio">Skip to portfolio</a>
+<header class="site-header">
+  <a href="#intro" class="signature" data-to="intro" aria-label="Return to introduction"><span class="brand-mark">✳</span><span class="brand-type">NYAN LIN ZAW <small>DESIGN × ENGINEERING / 2026</small></span></a>
+  <nav class="nav-links" aria-label="Portfolio sections">
+    <button type="button" data-to="intro">Introduction</button>
+    <button type="button" data-to="work">Experience</button>
+    <button type="button" data-to="projects">Projects</button>
+    <button type="button" data-to="labs">Interactive lab</button>
+    <button type="button" data-to="contact">Contact</button>
+  </nav>
+  <div class="nav-actions"><span id="panel-status" aria-live="polite">01 <i>/</i> 09</span><button type="button" class="nav-arrow" id="prev" aria-label="Previous section">←</button><button type="button" class="nav-arrow" id="next" aria-label="Next section">→</button></div>
+</header>
+<main class="exhibition" id="portfolio" aria-label="Portfolio exhibition; scroll sideways on desktop" tabindex="0">
+  <section class="sheet sheet-light sheet-intro" id="intro" data-name="Introduction">
+    <div class="section-rule"><span>FIG. 001 / PERSONAL INTRODUCTION</span><span>2026 — DESIGN & TECHNOLOGY</span></div>
+    <div class="intro-kicker"><span class="orange-signal"></span> SOFTWARE MANAGER <span class="separate">//</span> PRODUCT DESIGNER</div>
+    <div class="intro-layout">
+      <div class="intro-text">
+        <h1>Nyan Lin <span>Zaw<span class="period">.</span></span></h1>
+        <p>I build human-centered software and thoughtfully engineered experiences that connect technology with real-world needs. My work spans full-stack development, product design, and research, with a focus on creating intuitive, accessible, and meaningful digital experiences.</p>
+        <div class="cta-line"><button type="button" class="btn btn-primary" data-contact>Contact info <span>↗</span></button><button class="btn btn-outline" id="resume" type="button">View résumé <span>↗</span></button></div>
+        <p id="resume-msg" class="inline-note" hidden>Résumé has not been provided yet. Add its actual file to enable this button.</p>
+      </div>
+      <div class="intro-art" aria-hidden="true"><span class="bracket left">[</span><img src="assets/arrow.gif" alt=""><span class="bracket right">]</span></div>
+    </div>
+    <footer class="sheet-footer"><span>01 — ABOUT ME</span><span class="scroll-callout">SCROLL TO EXPLORE <b>⟶</b></span></footer>
+  </section>
+
+
+<section class="sheet sheet-blue sheet-education"
+         id="education" data-name="Education & awards">
+  <h2>Education <em>& Awards.</em></h2>
+  <div class="edu-panels">
+
+    <button class="edu-flip-card" type="button"
+            aria-pressed="false" aria-label="Flip Berea College card">
+      <span class="edu-flip-inner">
+        <span class="edu-face edu-face-front">
+          <img src="assets/church.png" alt="Berea College blueprint illustration">
+          <span class="edu-card-label">Berea College</span>
+        </span>
+        <span class="edu-face edu-face-back">
+          <strong>Berea College Class 26’</strong>
+          <span>• Majored in Computer and Information Science and Communication.</span><span>• Studied Software Development, Data Structures, Computer Organization, Theory of Computation, Human-Centered Interaction, and AI Full-Stack Engineering.</span>
+        </span>
+      </span>
+    </button>
+    
+    <button class="edu-flip-card" type="button"
+            aria-pressed="false" aria-label="Flip Aspire Inst. card">
+      <span class="edu-flip-inner">
+        <span class="edu-face edu-face-front">
+          <img src="assets/city.png" alt="Aspire Inst. blueprint illustration">
+          <span class="edu-card-label">Aspire Inst.</span>
+        </span>
+        <span class="edu-face edu-face-back">
+          <strong>Aspire Institute Class 26’</strong>
+          <span>• Leadership in Business and Organization.</span><span>• Pursuing Extended Leadership Program in Research.</span><span>• Google Project Management and AI Professional Certificates.</span>
+        </span>
+      </span>
+    </button>
+    
+    <button class="edu-flip-card" type="button"
+            aria-pressed="false" aria-label="Flip Santa Clara Uni card">
+      <span class="edu-flip-inner">
+        <span class="edu-face edu-face-front">
+          <img src="assets/campus.png" alt="Santa Clara Uni blueprint illustration">
+          <span class="edu-card-label">Santa Clara Uni</span>
+        </span>
+        <span class="edu-face edu-face-back">
+          <strong>Santa Clara University</strong>
+          <span>• Innovate & Elevate: Silicon Valley Accelerator Program.</span><span>• Won first prize in the MAMAGURT pitch competition.</span><span>• Studied prototyping, pitching, networking, storytelling, and startup development.</span>
+        </span>
+      </span>
+    </button>
+    
+  </div>
+  <div class="recognition edu-awards-static">
+  <strong>Awards</strong>
+  <div>Berea College Full Scholarship | $297,189</div>
+  <div>Anna Mae and Phyllis Shumaker Award | $1,000</div>
+  <div>Computer Science Department Award | $250</div>
+  <div>Aspire Google Scholarship</div>
+</div>
+  <footer class="sheet-footer">
+    <span>EDUCATION & AWARDS</span><span>02 / 09</span>
+  </footer>
+</section>
+  
+<section class="sheet sheet-light sheet-work" id="work" data-name="Current work">
+
+  <div class="work-side-label" aria-hidden="true">
+    <span class="work-side-label-main">Current Work Experience in</span>
+    <span class="work-side-label-accent">Berea College</span>
+  </div>
+
+
+  <div class="section-rule">
+    <span>FIG. 003 / CURRENT WORK EXPERIENCE</span>
+    <span>BEREA COLLEGE / SOFTWARE</span>
+  </div>
+
+  <h2>Building tools <em>that matter.</em></h2>
+
+  <div class="work-redesign">
+
+    <div class="work-redesign-images">
+
+      <button class="work-redesign-project" type="button" data-detail="labor">
+        <img src="assets/labor.png" alt="Labor Status Form">
+        <div class="work-redesign-project-label">
+          <span>01</span>
+          <strong>LABOR STATUS FORM</strong>
+          <small>EXPLORE ↗</small>
+        </div>
+      </button>
+
+      <button class="work-redesign-project" type="button" data-detail="celts">
+        <img src="assets/celts.png" alt="CELTS Application">
+        <div class="work-redesign-project-label">
+          <span>02</span>
+          <strong>CELTS APP</strong>
+          <small>EXPLORE ↗</small>
+        </div>
+      </button>
+
+    </div>
+
+    <div class="work-redesign-description">
+      <div class="work-description-heading">
+        CURRENT WORK / BEREA COLLEGE
+      </div>
+
+      <ul>
+        <li>Developing and testing a BereaCorps web application to smooth out work transitions.</li>
+        <li>Maintaining four web applications serving 2,000+ users.</li>
+        <li>Reviewing, testing, and merging &gt; 30 pull requests per term across four repositories.</li>
+        <li>Leading and mentoring a team of 14 student developers and 16 interns each year.</li>
+        <li>Reduced the PR backlog by 35% in two months.</li>
+        <li>Building new features, fixing bugs, and improving existing systems.</li>
+        <li>Collaborating with stakeholders to improve applications and workflows.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="work-impact-blocks">
+
+    <div class="work-impact-block navy">
+      <span>Saved Berea College</span>
+      <strong>$100k</strong>
+    </div>
+
+    <div class="work-impact-block white">
+      <span>Reduced labor for CELTS by</span>
+      <strong>75 hrs</strong>
+    </div>
+
+    <div class="work-impact-block orange">
+      <strong>35%</strong>
+      <span>PR Backlog Reduction in 2 Months</span>
+    </div>
+
+    <div class="work-impact-block orange">
+      <span>Lead a team of</span>
+      <strong>14 SWE</strong>
+    </div>
+
+    <div class="work-impact-block navy">
+      <span>Maintained 4 web apps with</span>
+      <strong>&gt;2000 users</strong>
+    </div>
+
+  </div>
+
+  <footer class="sheet-footer">
+    <span>CURRENT WORK EXPERIENCE</span>
+    <span>03 / 09</span>
+  </footer>
+
+</section>
+
+<section class="sheet sheet-blue sheet-experience" id="experience" data-name="Past experience">
+    <div class="section-rule"><span>FIG. 004 / EXPERIENCE & COLLABORATION</span><span>DESIGN / RESEARCH / COMMUNITY</span></div>
+    <h2>Previous <em>work & experiments.</em></h2>
+    <p class="section-subtitle">Select a project to inspect its details. These expand into closable overlays without leaving the exhibition.</p>
+    <div class="experience-grid">
+      <button class="experience-card" type="button" data-detail="aauw"><span class="exp-no">001 / WEB DESIGN</span><img src="assets/aauw.png" loading="lazy" alt="AAUW Berea website desktop mockup"><div><strong>AAUW</strong><span>VIEW EXPERIENCE ↗</span></div></button>
+      <button class="experience-card" type="button" data-detail="nextgen"><span class="exp-no">002 / RESPONSIVE WEB</span><img src="assets/nextgen.png" loading="lazy" alt="NextGen Justice multi-device mockup"><div><strong>NextGen Justice</strong><span>VIEW EXPERIENCE ↗</span></div></button>
+      <button class="experience-card" type="button" data-detail="aicollective"><span class="exp-no">003 / COMMUNITY & EVENTS</span><img src="assets/ai.png" loading="lazy" alt="AI Collective design displayed on a monitor"><div><strong>The AI Collective</strong><span>VIEW EXPERIENCE ↗</span></div></button>
+      <button class="experience-card" type="button" data-detail="snapchat"><span class="exp-no">004 / AR DESIGN</span><img src="assets/snapchat.jpeg" loading="lazy" alt="Snapchat augmented reality summer connections poster"><div><strong>Snapchat AR</strong><span>VIEW EXPERIENCE ↗</span></div></button>
+    </div>
+    <footer class="sheet-footer"><span>SELECT TO EXPAND</span><span>04 / 09</span></footer>
+  </section>
+
+  <section class="sheet sheet-light sheet-projects" id="projects" data-name="Featured projects">
+    <div class="section-rule"><span>FIG. 005 / PRODUCT DESIGN PORTFOLIO</span><span>RESEARCH → PROTOTYPE → IMPACT</span></div>
+    <h2>Selected <em>projects.</em></h2>
+    <p class="section-subtitle">Project research, design systems, prototypes and outcomes. Each project opens a detailed, closable view.</p>
+    <div id="project-gallery" class="project-gallery"></div>
+    <footer class="sheet-footer"><span>SELECT A PROJECT FOR ITS STORY</span><span>05 / 09</span></footer>
+  </section>
+
+  <section class="sheet sheet-blue sheet-research" id="research" data-name="Research & recognition">
+    <div class="section-rule"><span>FIG. 006 / PUBLICATIONS & PRESENTATIONS</span><span>IDEAS / INQUIRY / RECOGNITION</span></div>
+    <h2>What I've <em>explored.</em></h2>
+    <div class="research-grid">
+      <article><span>01 / PRODUCT COMMUNICATION</span><h3>Talks that Build</h3><p>Exploring communication factors for the success of emerging professionals in product teams.</p></article>
+      <article><span>02 / CLIENT-SIDE AI</span><h3>Optimization & Pruning</h3><p>Building AI/ML models on the client side in the legal sector.</p></article>
+      <article><span>03 / COMMUNICATION RESEARCH</span><h3>Co-Cultural Identities</h3><p>Appalachian college students' health-seeking behaviors.</p></article>
+    </div>
+    <div class="research-showcase"><img src="assets/mr.png" loading="lazy" alt="MindRoute interface blueprint"><div><span>AWARD-WINNING PROJECT</span><h3>MindRoute</h3><p>Second Prize and  Best Use of AI Award, per supplied Figma materials.</p><button type="button" class="btn btn-outline" data-detail="mindroute">Explore journey ↗</button></div></div>
+    <footer class="sheet-footer"><span>PUBLICATIONS / PRESENTATIONS</span><span>06 / 09</span></footer>
+  </section>
+
+  <section class="sheet sheet-light sheet-labs" id="labs" data-name="Interactive experiences">
+    <div class="section-rule"><span>FIG. 007 / INTERACTIVE PROTOTYPES</span><span>FRONTEND-ONLY EXPERIMENTS</span></div>
+    <h2>Immersive <em>experiences.</em></h2>
+    <p class="section-subtitle">Not just screenshots. Open a working prototype and interact with the concept directly.</p>
+    <div class="lab-cards">
+      <article class="lab-card"><div class="lab-media"><img src="assets/trove.png" loading="lazy" alt="Trove interactive artifact blueprint illustration"></div><div class="lab-copy"><span>001 / STORYTELLING OBJECT</span><h3>Trove</h3><p>Every object has a story. Scan a pen, Burmese stamp, or rocket keychain.</p><button type="button" class="btn btn-primary" data-detail="trove" data-demo-first="true">Immerse in experience ↗</button></div></article>
+      <article class="lab-card"><div class="lab-media"><img src="assets/nand.png" loading="lazy" alt="NAND logic breadboard blueprint illustration"></div><div class="lab-copy"><span>002 / COMPUTER ORGANIZATION</span><h3>NAND Lab</h3><p>Build an AND gate using two NAND gates, connect pins, then test it.</p><button type="button" class="btn btn-primary" data-detail="nand" data-demo-first="true">Immerse in experience ↗</button></div></article>
+    </div>
+    <footer class="sheet-footer"><span>SIMULATED · INTERACTIVE · NO BACKEND</span><span>07 / 09</span></footer>
+  </section>
+
+  <section class="sheet sheet-blue sheet-bacnet" id="bacnet" data-name="BACnet prototyping">
+    <div class="section-rule"><span>FIG. 008 / SYSTEMS ENGINEERING</span><span>BUILDING AUTOMATION PROTOCOL</span></div>
+    <div class="bacnet-top"><div><span class="overline">INTERACTIVE / FRONTEND SIMULATION</span><h2>BACnet <em>Lab.</em></h2><p>Make devices speak BACnet. Explore simulated discovery, standardized objects, and read/write property operations.</p></div><div class="bacnet-illustration" aria-hidden="true"><svg viewBox="0 0 380 210"><g fill="none" stroke="#cce7ff" stroke-width="2"><rect x="15" y="76" width="100" height="58" rx="5"/><rect x="249" y="10" width="112" height="54" rx="5"/><rect x="249" y="147" width="112" height="54" rx="5"/><path d="M115 105H185V37H249M185 105V174H249" stroke="#ff791e" stroke-width="4"/><circle cx="185" cy="105" r="7" fill="#ff791e" stroke="#ff791e"/></g><g font-size="11" fill="#f4f8ff" font-family="monospace"><text x="38" y="110">BMS</text><text x="272" y="40">HVAC</text><text x="268" y="178">LIGHTING</text></g></svg></div></div>
+    <div class="bacnet-bottom"><button type="button" class="btn btn-primary" data-detail="bacnet" data-demo-first="true">Immerse in experience ↗</button><button type="button" class="btn btn-outline" data-detail="observatory">BACnet Observatory / details ↗</button></div>
+    <div class="bacnet-notice">THE LIVE BACnet/IP SERVER IS NOT INCLUDED. THIS DEMO USES LOCAL, SIMULATED DEVICES AND MESSAGES ONLY.</div>
+    <footer class="sheet-footer"><span>PROTOCOLED INTERACTION / FRONTEND</span><span>08 / 09</span></footer>
+  </section>
+
+  <section class="sheet sheet-light sheet-contact" id="contact" data-name="Contact">
+    <div class="section-rule"><span>FIG. 009 / END OF EXHIBITION</span><span>READY FOR THE NEXT CHAPTER</span></div>
+    <div class="end-copy"><span class="overline">DESIGN × ENGINEERING × HUMAN EXPERIENCE</span><h2>Thank you<br><em>for visiting.</em></h2><p>Thoughtful software begins with curiosity. Let's explore what meaningful technology can do next.</p><div class="cta-line"><button type="button" class="btn btn-primary" data-contact>Contact info ↗</button><button type="button" class="btn btn-outline" data-to="intro">← Back to beginning</button></div></div>
+    <img src="assets/arrow.gif" class="end-arrow" alt="" aria-hidden="true">
+    <footer class="sheet-footer"><span>NYAN LIN ZAW / 2026</span><span>END OF EXHIBITION — 09 / 09</span></footer>
+  </section>
+</main>
+<div class="scroll-rail" aria-hidden="true"><div id="scroll-progress"></div></div>
+<footer class="global-foot"><span>ARCHITECTURAL BLUEPRINT / PORTFOLIO</span><span class="desktop-hint">SCROLL YOUR MOUSE WHEEL OR TRACKPAD TO MOVE RIGHT →</span><span class="mobile-hint">SCROLL DOWN TO EXPLORE ↓</span><span>BUILT WITH HTML · CSS · JAVASCRIPT</span></footer>
+
+<dialog id="detail-dialog" class="detail-dialog" aria-labelledby="detail-title">
+  <div class="dialog-shell"><header class="dialog-header"><div><span class="dialog-index" id="detail-label">PROJECT / CASE STUDY</span><h2 id="detail-title">Project details</h2></div><button type="button" id="detail-close" class="dialog-close" aria-label="Close project details">CLOSE <span>×</span></button></header>
+  <div class="dialog-content" id="detail-content"></div></div>
+</dialog>
+<dialog id="contact-dialog" class="contact-dialog" aria-labelledby="contact-title"><div class="dialog-shell"><header class="dialog-header"><div><span class="dialog-index">GET IN TOUCH / CONTACT DETAILS</span><h2 id="contact-title">Contact info</h2></div><button type="button" id="contact-close" class="dialog-close" aria-label="Close contact info">CLOSE <span>×</span></button></header><div class="contact-body"><p>My contact links and résumé have not been supplied. This panel is ready to connect to actual destinations without inventing emails or profiles.</p><div class="contact-links"><button disabled type="button">Email / not configured</button><button disabled type="button">LinkedIn / not configured</button><button disabled type="button">GitHub / not configured</button></div><p class="small-note">Edit the contact configuration in <code>app.js</code> to enable verified links.</p></div></div></dialog>
+</body>
+</html>

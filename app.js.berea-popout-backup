@@ -1,0 +1,501 @@
+'use strict';
+
+/* Everything runs locally. Add real links only after confirming their URLs. */
+const CONTACT = {email: null, linkedin: null, github: null, resume: null};
+
+const cases = {
+  berea: {title:'Berea College',kind:'EDUCATION / CLASS OF 2026',image:'assets/church.png',bluematte:true,summary:'Computer & Information Science and Communication. Studied software development, data structures, computer organization, theory of computation, human-computer interaction and AI full-stack engineering.',timeline:['Berea College — Class of 2026','Computer & Information Science and Communication','Full Scholarship · departmental awards'],stack:'SOFTWARE · RESEARCH · DESIGN'},
+  aspire: {title:'Aspire Institute',kind:'LEADERSHIP EDUCATION',image:'assets/campus.png',bluematte:true,summary:'Leadership coursework in business and organizations. The source Figma reference also describes pursuing an extended leadership program in research.',timeline:['Leadership in Business and Organizations','Extended leadership learning / research focus'],stack:'LEADERSHIP · ORGANIZATIONS · RESEARCH'},
+  santa: {title:'Innovate & Elevate',kind:'SANTA CLARA UNIVERSITY',image:'assets/city.png',bluematte:true,summary:'An entrepreneurship and product-development accelerator experience emphasizing early-stage product ideation, business models, pitching, and communicating value.',timeline:['Product and business-model development','Entrepreneurial learning and pitching','MAMAGURT project pitch'],stack:'ENTREPRENEURSHIP · PRODUCT · PITCHING'},
+  labor: {title:'Labor Status Form',kind:'BEREA COLLEGE / INSTITUTIONAL SOFTWARE',image:'assets/labor.png',summary:'An institutional application for the student labor program. Work includes maintaining workflows, testing new functionality, improving reliability and supporting users.',timeline:['Maintain and test department and supervisor workflows','Improve forms, administration, and internal search interfaces','Collaborate with stakeholders on functionality'],stack:'PYTHON · FLASK · MYSQL · WEB APPLICATIONS'},
+  celts: {title:'CELTS Application',kind:'BEREA COLLEGE / COMMUNITY ENGAGEMENT',image:'assets/celts.png',summary:'The Center for Excellence in Learning through Service platform supports events, volunteer programs, rosters, training, and student participation workflows. Work includes feature development, testing and issue resolution.',timeline:['Refine roster, training and event participation logic','Improve student search and profile workflows','Test and maintain features with team and stakeholders'],stack:'PYTHON · FLASK · DATABASES · QA'},
+  aauw: {title:'AAUW',kind:'WEB DESIGN / COMMUNITY',image:'assets/aauw.png',summary:'A responsive website experience for the Berea chapter of the American Association of University Women, presenting its mission, opportunities, events and community programs.',timeline:['Community-focused web experience','Accessible, responsive content presentation','Mission and program pages'],stack:'RESPONSIVE WEB · INFORMATION ARCHITECTURE'},
+  nextgen: {title:'NextGen Justice',kind:'RESPONSIVE WEBSITE / DESIGN',image:'assets/nextgen.png',summary:'An editorial responsive web interface demonstrated across desktop, tablet and mobile layouts.',timeline:['Layout and typography design','Desktop, tablet and phone mockups','Responsive presentation'],stack:'WEB DESIGN · RESPONSIVE UI'},
+  aicollective: {title:'The AI Collective',kind:'COMMUNITY / DESIGN & EVENTS',image:'assets/ai.png',summary:'Visual communications for technical gatherings and workshops, including the Vibe Coding Workshop and Inter-Club Hackathon shown in the supplied assets.',timeline:['Visual communications and event materials','Community workshops','Design assets for presentations and outreach'],stack:'EVENT DESIGN · COMMUNITY · COMMUNICATION'},
+  snapchat: {title:'Snapchat AR / Summer Connections',kind:'AUGMENTED REALITY / CAMPUS DESIGN',image:'assets/snapchat.jpeg',summary:'A campus-oriented augmented reality experience using Snapchat stickers and location-based creative assets, presented with a mapped Summer Connections design.',timeline:['Designed Snapchat AR stickers and creative graphics','Created campus-connected interactive visuals','Presented codes and prompts for exploring the experience'],stack:'AUGMENTED REALITY · SNAPCHAT · VISUAL DESIGN'},
+  mindroute: {title:'MindRoute',kind:'HUMAN-CENTERED AI / WAYFINDING',image:'assets/mr.png',bluematte:true,summary:'A cognitive-load-aware walking route planner investigating how environmental and navigational features can help people compare routes for comfort and complexity. The reference demonstrates alternative routes and a locally designed interface, not a live portfolio routing service.',timeline:['June 2026 — Ideation & Research','June 2026 — Design & Prototyping','August 2026 — AI Development','August 2026 — Testing','October 2026 — Presentation'],award:'Second Prize ·  Best Use of AI Award  ',stack:'MAPBOX · XGBOOST · HCI · ROUTE PLANNING'},
+  instagram: {title:'Instagram Redesign',kind:'ACCESSIBILITY / UX RESEARCH',image:null,summary:'A design study about Instagram accessibility challenges using anonymized user research, comparative analysis, affinity mapping, iterative prototyping and testing.',timeline:['November 2024 — User Research','December 2024 — Prototyping','December 2024 — High-Fidelity','December 2024 — User Testing','February 2025 — Presentation'],award:'Fourth Place Award  ',stack:'UX RESEARCH · AFFINITY MAPPING · PROTOTYPING'},
+  mam: {title:'MAMAGURT Pitch',kind:'PRODUCT STRATEGY / BRANDING',image:'assets/mam.png',bluematte:true,summary:'A proposed probiotic yogurt drink and snack brand for expectant mothers. Developed product and packaging concepts, entrepreneurial positioning, a business model and a competition pitch. This is a proposed concept, not a validated health product.',timeline:['June 2025 — Ideation to Execution','June 2025 — Entrepreneur Mindset','July 2025 — Funding & Scaling','July 2025 — Networking','July 2025 — Pitch Competition'],award:'First Place · Santa Clara University Project Pitch  ',stack:'BRANDING · PACKAGING · PRODUCT PITCH'},
+  trove: {title:'Trove',kind:'INTERACTIVE OBJECT STORYTELLING',image:'assets/trove.png',bluematte:true,summary:'Inspired by tangible reminiscence experiences, Trove invites visitors to scan familiar items and learn the cultural or personal stories they can carry. The supplied original HTML simulation supports touch and mouse interactions using predefined responses.',timeline:['Research — Tangible objects and reminiscence','Design — Blueprint object-scanning prototype','Implementation — Frontend scanning and responses'],stack:'HTML · CSS · JAVASCRIPT · POINTER EVENTS',demo:'demos/trove.html'},
+  nand: {title:'NAND Lab',kind:'INTERACTIVE COMPUTER ORGANIZATION',image:'assets/nand.png',bluematte:true,summary:'A two-NAND logic exercise: drag gates, connect pins, and verify an AND output by toggling two inputs and reviewing the complete truth table. This is a frontend educational logic model, not an electrical breadboard simulator.',timeline:['Learning objective — AND via NAND','Prototype — Interactive gates and connections','Validation — Four test combinations'],stack:'HTML · CSS · JAVASCRIPT · DIGITAL LOGIC',demo:'demos/nand.html'},
+  bacnet: {title:'BACnet Lab',kind:'BUILDING AUTOMATION / SIMULATOR',image:null,summary:'An interactive, local-only BACnet teaching tool. Simulate Who-Is/I-Am discovery, select controllers and BACnet objects, inspect ReadProperty responses and issue a simulated WriteProperty change. No real network devices or BACnet/IP packets are involved.',timeline:['Learn BACnet device/object concepts','Simulate discovery and device selection','Read and modify simulated object properties'],stack:'HTML · CSS · JAVASCRIPT · BACnet CONCEPTS',demo:'demos/bacnet.html'},
+  observatory: {title:'BACnet Observatory',kind:'SEPARATE DIGITAL-TWIN CONCEPT',image:null,summary:'The Figma source includes BACnet Observatory as a separate project. The uploaded material supplies a frontend BACnet Lab simulator but not a validated, deployable Observatory application. This entry therefore documents the concept without pretending a backend or live BACnet network is running.',timeline:['Concept — Building automation digital twin','Possible future — Python-hosted test environment','Frontend portfolio — Static project overview only'],stack:'PROJECT CONCEPT · NOT A LIVE SERVICE'}
+};
+
+const featured = [
+ {id:'mindroute',tag:'HUMAN-CENTERED AI',description:'Cognitive-load-aware route planning.'},
+ {id:'instagram',tag:'UX / REDESIGN',description:'Research-led accessibility exploration.'},
+ {id:'mam',tag:'PRODUCT / BRAND',description:'Yogurt product concept and pitch.'}
+];
+
+const safe = value => String(value ?? '').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const exhibition = document.getElementById('portfolio');
+const desktopQuery = window.matchMedia('(min-width: 1024px)');
+const sheets = [...exhibition.querySelectorAll(':scope > .sheet')];
+const detailDialog = document.getElementById('detail-dialog');
+const contactDialog = document.getElementById('contact-dialog');
+const detailContent = document.getElementById('detail-content');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const gallery = document.getElementById('project-gallery');
+
+for (const project of featured) {
+ const entry = cases[project.id];
+ const card = document.createElement('button');
+ card.type = 'button'; card.className='project-card'; card.dataset.detail=project.id;
+ card.innerHTML=`<div class="project-preview"><span>${safe(project.tag)}</span>${entry.image?`<img loading="lazy" src="${entry.image}" alt="${safe(entry.title)} reference">`:`<div class="preview-placeholder"><b>INSTAGRAM</b><small>RESEARCH / ACCESSIBILITY</small><span class="preview-cross">✳</span></div>`}</div><div class="project-summary"><strong>${safe(entry.title)}</strong><p>${safe(project.description)}</p><small>EXPAND CASE STUDY ↗</small></div>`;
+ gallery.append(card);
+}
+
+/* Continuous scrolling is the PRIMARY desktop navigation mechanism.
+   Capture at WINDOW so scrolling works while cursor is over any panel or the header.
+   Never steal scroll gestures from modals, form controls, or scrollable demo content. */
+function scrollableAncestor(target) {
+ let element = target instanceof Element ? target : null;
+ while (element && element !== document.documentElement) {
+  if (element.closest('dialog[open]')) return true;
+  const style = window.getComputedStyle(element);
+  if (/(auto|scroll)/.test(style.overflowY) && element.scrollHeight > element.clientHeight + 3) return true;
+  if (element.matches('textarea,select,input,[contenteditable="true"],[role="slider"],iframe')) return true;
+  element = element.parentElement;
+ }
+ return false;
+}
+window.addEventListener('wheel', event => {
+ if (!desktopQuery.matches || detailDialog.open || contactDialog.open || event.ctrlKey || event.metaKey || scrollableAncestor(event.target)) return;
+ let distance = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+ if (event.deltaMode === 1) distance *= 18;
+ if (event.deltaMode === 2) distance *= Math.min(window.innerWidth,800);
+ if (!Number.isFinite(distance) || Math.abs(distance) < 0.05) return;
+ const limit = exhibition.scrollWidth - exhibition.clientWidth;
+ const next = Math.max(0,Math.min(limit,exhibition.scrollLeft + distance));
+ if (Math.abs(next-exhibition.scrollLeft) < .3) return;
+ event.preventDefault();
+ exhibition.scrollLeft=next; // deliberately no snap: smooth natural granular movement
+ updateProgress();
+}, {passive:false, capture:true});
+
+function targetScrollLeft(element) {
+ const viewport = exhibition.getBoundingClientRect();
+ return exhibition.scrollLeft + element.getBoundingClientRect().left - viewport.left;
+}
+function navigateTo(id) {
+ const section = document.getElementById(id);
+ if (!section) return;
+ if (desktopQuery.matches) exhibition.scrollTo({left:targetScrollLeft(section),behavior:reducedMotion.matches?'auto':'smooth'});
+ else section.scrollIntoView({block:'start',behavior:reducedMotion.matches?'auto':'smooth'});
+}
+function moveRelative(direction) {
+ if (desktopQuery.matches) exhibition.scrollBy({left:direction*Math.min(exhibition.clientWidth*.8,760),behavior:reducedMotion.matches?'auto':'smooth'});
+ else window.scrollBy({top:direction*window.innerHeight*.68,behavior:reducedMotion.matches?'auto':'smooth'});
+}
+document.querySelectorAll('[data-to]').forEach(btn=>btn.addEventListener('click',event=>{
+ event.preventDefault(); navigateTo(btn.dataset.to);
+}));
+document.getElementById('prev').addEventListener('click',()=>moveRelative(-1));
+document.getElementById('next').addEventListener('click',()=>moveRelative(1));
+window.addEventListener('keydown',event=>{
+ if (!desktopQuery.matches || detailDialog.open || contactDialog.open || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+ if (event.target instanceof Element && event.target.closest('button,a,input,textarea,select,[contenteditable],iframe')) return;
+ if (event.key==='ArrowRight' || event.key==='PageDown') { event.preventDefault(); moveRelative(1); }
+ if (event.key==='ArrowLeft' || event.key==='PageUp') { event.preventDefault(); moveRelative(-1); }
+});
+
+/* Optional click-drag on empty desktop panels; does not interfere with controls. */
+let pan = null;
+exhibition.addEventListener('pointerdown',event=>{
+ if (!desktopQuery.matches || event.pointerType!=='mouse' || event.button!==0 || event.target.closest('button,a,input,textarea,select,iframe,[data-no-pan]')) return;
+ pan={x:event.clientX,initial:exhibition.scrollLeft,dragged:false};
+});
+window.addEventListener('pointermove',event=>{
+ if (!pan || (event.buttons&1)===0) return;
+ const delta=event.clientX-pan.x;
+ if (Math.abs(delta)>8) { pan.dragged=true;exhibition.scrollLeft=pan.initial-delta; }
+});
+window.addEventListener('pointerup',()=>{pan=null});
+window.addEventListener('blur',()=>{pan=null});
+
+function currentSheetIndex() {
+ const left = exhibition.getBoundingClientRect().left;
+ let best=0,bestDistance=Infinity;
+ sheets.forEach((sheet,index)=>{
+  const delta=Math.abs(sheet.getBoundingClientRect().left-left);
+  if (delta<bestDistance) {bestDistance=delta;best=index;}
+ });
+ return best;
+}
+function updateProgress() {
+ const percent=desktopQuery.matches?
+  (100*exhibition.scrollLeft/Math.max(1,exhibition.scrollWidth-exhibition.clientWidth)):
+  (100*window.scrollY/Math.max(1,document.documentElement.scrollHeight-window.innerHeight));
+ document.getElementById('scroll-progress').style.width=`${Math.min(100,Math.max(0,percent))}%`;
+ if (desktopQuery.matches) {
+  document.getElementById('panel-status').innerHTML=`${String(currentSheetIndex()+1).padStart(2,'0')} <i>/</i> ${String(sheets.length).padStart(2,'0')}`;
+ } else {
+  const visible = sheets.filter(s=>s.getBoundingClientRect().top<window.innerHeight*.45).at(-1);
+  const idx = visible ? sheets.indexOf(visible) : 0;
+  document.getElementById('panel-status').innerHTML=`${String(idx+1).padStart(2,'0')} <i>/</i> ${String(sheets.length).padStart(2,'0')}`;
+ }
+}
+exhibition.addEventListener('scroll',updateProgress,{passive:true});
+window.addEventListener('scroll',updateProgress,{passive:true});
+window.addEventListener('resize',updateProgress);
+window.addEventListener('load',updateProgress);
+updateProgress();
+
+/* Project detail and immersive experience MODALS (as requested in latest brief).
+   The supplied self-contained HTML apps remain intact and isolated in an iframe,
+   and are unloaded on close to stop animations and reset timers. */
+function overviewHtml(entry) {
+ const image=entry.image ? `<img class="dialog-image ${entry.bluematte?'on-blue':''}" src="${safe(entry.image)}" alt="${safe(entry.title)} project visual">` : `<div class="dialog-placeholder"><strong>${safe(entry.title)}</strong><small>PROJECT CONCEPT / REFERENCE</small></div>`;
+ return `<div class="dialog-layout"><div>${image}<p class="dialog-narrative">${safe(entry.summary)}</p><p class="dialog-tech">TOOLS / ${safe(entry.stack)}</p></div><div><div class="dialog-timeline"><h3>PROJECT JOURNEY / DETAILS</h3><ol>${entry.timeline.map(item=>`<li>${safe(item)}</li>`).join('')}</ol></div>${entry.award?`<p class="dialog-award">✳ ${safe(entry.award)}</p>`:''}${entry.demo?'<div class="dialog-controls"><button type="button" class="btn btn-primary" data-show-demo>Immerse in experience ↗</button></div>':''}</div></div>`;
+}
+function demoHtml(entry) {
+ return `<div class="dialog-demo"><div class="dialog-demo-toolbar"><span>LIVE FRONTEND DEMO / ORIGINAL SOURCE</span><a href="${safe(entry.demo)}" target="_blank" rel="noopener noreferrer">OPEN STANDALONE ↗</a></div><iframe class="demo-iframe" title="${safe(entry.title)} interactive frontend experience" src="${safe(entry.demo)}" loading="eager"></iframe><p class="demo-disclaimer">This is the locally hosted HTML/CSS/JS prototype supplied with the portfolio. Simulated interactions only; no backend, live devices, or external service required.</p></div>`;
+}
+function selectTab(entry, view) {
+ if (!detailDialog.open) return;
+ detailContent.innerHTML= view==='demo' && entry.demo ? demoHtml(entry):overviewHtml(entry);
+ detailContent.scrollTop=0;
+ const launch=detailContent.querySelector('[data-show-demo]');
+ if (launch) launch.addEventListener('click',()=>selectTab(entry,'demo'));
+ if (entry.demo) {
+  const toolbar=document.createElement('div'); toolbar.className='dialog-tabbar';
+  toolbar.innerHTML=`<button type="button" class="${view==='overview'?'selected':''}" data-tab="overview" aria-pressed="${view==='overview'}">01 / PROJECT STORY</button><button type="button" class="${view==='demo'?'selected':''}" data-tab="demo" aria-pressed="${view==='demo'}">02 / INTERACTIVE DEMO</button>`;
+  detailContent.prepend(toolbar);
+  toolbar.querySelectorAll('[data-tab]').forEach(button=>button.addEventListener('click',()=>selectTab(entry,button.dataset.tab)));
+ }
+}
+function openDetail(id,showDemo=false) {
+ const entry=cases[id]; if (!entry) return;
+ document.getElementById('detail-label').textContent=entry.kind;
+ document.getElementById('detail-title').textContent=entry.title;
+ detailDialog.showModal();
+ document.body.classList.add('modal-open');
+ selectTab(entry,showDemo && entry.demo?'demo':'overview');
+ document.getElementById('detail-close').focus({preventScroll:true});
+}
+function closeDetail() {if(detailDialog.open)detailDialog.close()}
+function closeContact() {if(contactDialog.open)contactDialog.close()}
+document.getElementById('detail-close').addEventListener('click',closeDetail);
+document.getElementById('contact-close').addEventListener('click',closeContact);
+detailDialog.addEventListener('close',()=>{detailContent.replaceChildren();document.body.classList.remove('modal-open')});
+contactDialog.addEventListener('close',()=>{document.body.classList.remove('modal-open')});
+for (const dialog of [detailDialog,contactDialog]) dialog.addEventListener('click',event=>{
+ if(event.target===dialog)dialog.close();
+});
+document.addEventListener('click',event=>{
+ const button=event.target.closest('[data-detail]');
+ if(button){openDetail(button.dataset.detail,button.dataset.demoFirst==='true');return;}
+});
+
+// Contact links are deliberately disabled unless configured with real destinations.
+function linkOrDisabled(button, label, url) {
+ if(!url)return;
+ const a=document.createElement('a');a.href=url;a.textContent=label+' ↗';a.target='_blank';a.rel='noopener noreferrer';a.className='verified-contact-link';button.replaceWith(a);
+}
+const contactButtons=contactDialog.querySelectorAll('.contact-links button');
+linkOrDisabled(contactButtons[0],'Email',CONTACT.email?`mailto:${CONTACT.email}`:null);
+linkOrDisabled(contactButtons[1],'LinkedIn',CONTACT.linkedin);
+linkOrDisabled(contactButtons[2],'GitHub',CONTACT.github);
+document.querySelectorAll('[data-contact]').forEach(btn=>btn.addEventListener('click',()=>{contactDialog.showModal();document.body.classList.add('modal-open')}));
+document.getElementById('resume').addEventListener('click',()=>{
+ if(CONTACT.resume){window.open(CONTACT.resume,'_blank','noopener,noreferrer');return;}
+ document.getElementById('resume-msg').hidden=false;
+});
+
+/* Education cards: hover desktop, click/tap/keyboard to flip. Awards stay static. */
+document.querySelectorAll('.edu-flip-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const flipped = !card.classList.contains('is-flipped');
+    card.classList.toggle('is-flipped', flipped);
+    card.setAttribute('aria-pressed', String(flipped));
+  });
+});
+
+/* CURRENT WORK — ANIMATED IMPACT COUNTERS */
+
+(function () {
+
+  function initializeCounters() {
+
+    const counters = document.querySelectorAll(
+      '.sheet-work .work-impact-block strong'
+    );
+
+    if (!counters.length) return;
+
+    const reduceMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    counters.forEach(counter => {
+
+      const original = counter.textContent.trim();
+
+      // Extract number and preserve surrounding text.
+      const match = original.match(/^(.*?)(\d[\d,]*)(.*)$/);
+
+      if (!match) return;
+
+      counter.dataset.prefix = match[1];
+      counter.dataset.target = match[2].replace(/,/g, '');
+      counter.dataset.suffix = match[3];
+      counter.dataset.original = original;
+
+    });
+
+    function animateCounter(counter) {
+
+      const target = Number(counter.dataset.target);
+
+      if (!Number.isFinite(target)) return;
+
+      const prefix = counter.dataset.prefix;
+      const suffix = counter.dataset.suffix;
+
+      const duration = 1700; // 1.1 seconds
+      const start = performance.now();
+
+      function update(now) {
+
+        const progress = Math.min(
+          (now - start) / duration,
+          1
+        );
+
+        // Fast, smooth count-up animation
+        const eased = 1 - Math.pow(1 - progress, 4);
+
+        const value = Math.round(target * eased);
+
+        counter.textContent =
+          prefix + value.toLocaleString('en-US') + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          counter.textContent = counter.dataset.original;
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    const section = document.querySelector(
+      '.sheet-work'
+    );
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (!entry.isIntersecting) return;
+
+          counters.forEach(counter => {
+            if (!counter.dataset.target) return;
+
+            if (!reduceMotion) {
+              counter.textContent =
+                counter.dataset.prefix +
+                '0' +
+                counter.dataset.suffix;
+
+              animateCounter(counter);
+            }
+          });
+
+          // Play once when the section first appears
+          observer.unobserve(entry.target);
+        });
+
+      },
+      {
+        threshold: 0.90
+      }
+    );
+
+    observer.observe(section);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener(
+      'DOMContentLoaded',
+      initializeCounters
+    );
+  } else {
+    initializeCounters();
+  }
+
+})();
+
+/* === COMBINED RESEARCH BOARD SCRIPT START === */
+document.addEventListener('DOMContentLoaded', () => {
+  const research = document.getElementById('research');
+  if (!research || research.dataset.comboBuilt === 'true') return;
+
+  const projects = document.getElementById('projects');
+  const labs = document.getElementById('labs');
+
+  if (projects) projects.classList.add('combo-hidden-section');
+  if (labs) labs.classList.add('combo-hidden-section');
+
+  research.dataset.comboBuilt = 'true';
+  research.dataset.name = 'Competition awards, publications and projects';
+  research.classList.add('combo-board-section');
+
+  const portfolioCases = (typeof cases !== 'undefined' && cases) ? cases : {};
+  const getEntry = (id, fallback = {}) => Object.assign({}, fallback, portfolioCases[id] || {});
+
+  const mindroute = getEntry('mindroute', { title: 'MindRoute', image: 'assets/mr.png' });
+  const instagram = getEntry('instagram', { title: 'Instagram Redesign', image: '' });
+  const mam = getEntry('mam', { title: 'MAMAGURT Pitch', image: 'assets/mam.png' });
+  const trove = getEntry('trove', { title: 'Trove', image: 'assets/trove.png' });
+  const nand = getEntry('nand', { title: 'NAND Lab', image: 'assets/nand.png' });
+
+  const imageOrPlaceholder = (entry, placeholderHtml = '') => {
+    if (entry.image) return `<img src="${entry.image}" alt="${entry.title}">`;
+    return placeholderHtml || `<div class="combo-placeholder"><b>${entry.title}</b></div>`;
+  };
+
+  research.innerHTML = `
+    <div class="combo-board">
+      <div class="combo-side-label combo-side-left">Competition <em>Awards &amp; Publications</em></div>
+
+      <div class="combo-left-column">
+        <section class="combo-panel combo-publications">
+          <h3>Publications &amp; Presentations</h3>
+          <ul>
+            <li><span class="combo-doc">▣</span><span class="combo-title">Talks that Builds: Exploring Communication factors for the Success of Emerging Professional in Product Teams</span></li>
+            <li><span class="combo-doc">▣</span><span class="combo-title">Optimization and pruning of building AI/ML only on the client side in the legal sector</span></li>
+            <li><span class="combo-doc">▣</span><span class="combo-title">Co-Cultural Identities Impact on Appalachian College Student’s Health-Seeking Behaviors</span></li>
+          </ul>
+        </section>
+
+        <section class="combo-panel combo-awards-wrap">
+          <h3>Competition Awards</h3>
+
+          <div class="combo-awards-grid">
+            <button type="button" class="combo-award-card combo-wide" data-detail="mindroute">
+              ${imageOrPlaceholder(mindroute)}
+              <span class="combo-award-tag">↗</span>
+            </button>
+
+            <button type="button" class="combo-award-card combo-small" data-detail="instagram">
+              ${imageOrPlaceholder(
+                instagram,
+                '<div class="combo-placeholder"><b>INSTAGRAM</b><small>REDESIGN / ACCESSIBILITY</small></div>'
+              )}
+              <span class="combo-award-tag">↗</span>
+            </button>
+
+            <button type="button" class="combo-award-card combo-small" data-detail="mam">
+              ${imageOrPlaceholder(mam)}
+              <span class="combo-award-tag">↗</span>
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <div class="combo-side-label combo-side-right">Projects</div>
+
+      <div class="combo-right-column">
+        <article class="combo-project-box">
+          ${imageOrPlaceholder(trove)}
+          <button type="button" class="combo-cta" data-detail="trove" data-demo-first="true">Immersive Experience</button>
+        </article>
+
+        <article class="combo-project-box">
+          ${imageOrPlaceholder(nand)}
+          <button type="button" class="combo-cta" data-detail="nand" data-demo-first="true">Immersive Experience</button>
+        </article>
+      </div>
+    </div>
+  `;
+});
+/* === COMBINED RESEARCH BOARD SCRIPT END === */
+
+
+/* === GLOBAL ALIGNED BLUEPRINT GRID SCRIPT START === */
+
+(function () {
+
+  function setupAlignedGrid() {
+    const exhibition = document.querySelector('.exhibition');
+
+    if (!exhibition ||
+        exhibition.dataset.gridAligned === 'true') return;
+
+    exhibition.dataset.gridAligned = 'true';
+
+    const sheets = Array.from(
+      exhibition.querySelectorAll(':scope > .sheet')
+    );
+
+    let scheduled = false;
+
+    function update() {
+      scheduled = false;
+
+      const origin = exhibition.getBoundingClientRect();
+
+      for (const sheet of sheets) {
+        const rect = sheet.getBoundingClientRect();
+
+        const x = -(
+          rect.left - origin.left + exhibition.scrollLeft
+        );
+
+        const y = -(
+          rect.top - origin.top + exhibition.scrollTop
+        );
+
+        const px = `${Math.round(x)}px`;
+        const py = `${Math.round(y)}px`;
+
+        if (sheet.style.getPropertyValue('--grid-phase-x') !== px) {
+          sheet.style.setProperty('--grid-phase-x', px);
+        }
+
+        if (sheet.style.getPropertyValue('--grid-phase-y') !== py) {
+          sheet.style.setProperty('--grid-phase-y', py);
+        }
+      }
+    }
+
+    function requestUpdate() {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(update);
+    }
+
+    /* Re-align if sections change size */
+    if (typeof ResizeObserver !== 'undefined') {
+      const observer = new ResizeObserver(requestUpdate);
+
+      observer.observe(exhibition);
+      sheets.forEach(sheet => observer.observe(sheet));
+    }
+
+    window.addEventListener('resize', requestUpdate, {
+      passive: true
+    });
+
+    requestUpdate();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener(
+      'DOMContentLoaded',
+      setupAlignedGrid
+    );
+  } else {
+    setupAlignedGrid();
+  }
+
+})();
+
+/* === GLOBAL ALIGNED BLUEPRINT GRID SCRIPT END === */
+
